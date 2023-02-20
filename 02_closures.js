@@ -57,8 +57,7 @@ const jasCounter = outer();
 function addByX(x) {
   let result = 0;
   function add(number) {
-    result = x + number;
-    console.log(result);
+    return x + number;
   }
   return add;
 }
