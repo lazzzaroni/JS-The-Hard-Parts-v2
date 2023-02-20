@@ -63,7 +63,7 @@ function addByX(x) {
 }
 
 // /*** Uncomment these to check your work! ***/
-// const addByTwo = addByX(2);
+const addByTwo = addByX(2);
 // addByTwo(1); // => should return 3
 // addByTwo(2); // => should return 4
 // addByTwo(3); // => should return 5
@@ -79,13 +79,24 @@ function addByX(x) {
 /******************************************************************************/
 
 // CHALLENGE 4
-function once(func) {}
+function once(func) {
+  let result;
+  function inner(number) {
+    if (!result) {
+      result = func(number);
+    }
+    return result;
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
 // const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+// console.log(onceFunc(4)); // => should log 6
+// console.log(onceFunc(10)); // => should log 6
+// console.log(onceFunc(9001)); // => should log 6
+
+/******************************************************************************/
 
 // CHALLENGE 5
 function after(count, func) {}
