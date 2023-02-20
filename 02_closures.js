@@ -99,14 +99,25 @@ function once(func) {
 /******************************************************************************/
 
 // CHALLENGE 5
-function after(count, func) {}
+function after(count, func) {
+  let counter = 1;
+  function inner() {
+    if (counter == count) {
+      return func();
+    }
+    counter++;
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const called = function() { console.log('hello') };
+// const called = () => console.log("hello");
 // const afterCalled = after(3, called);
 // afterCalled(); // => nothing is printed
 // afterCalled(); // => nothing is printed
 // afterCalled(); // => 'hello' is printed
+
+/******************************************************************************/
 
 // CHALLENGE 6
 function delay(func, wait) {}
