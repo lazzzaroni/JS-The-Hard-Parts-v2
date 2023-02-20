@@ -54,7 +54,14 @@ const jasCounter = outer();
 // jasCounter();
 // willCounter();
 
-function addByX(x) {}
+function addByX(x) {
+  let result = 0;
+  function add(number) {
+    result = x + number;
+    console.log(result);
+  }
+  return add;
+}
 
 // /*** Uncomment these to check your work! ***/
 // const addByTwo = addByX(2);
@@ -69,6 +76,8 @@ function addByX(x) {}
 // const addByFour = addByX(4);
 // addByFour(4); // => should return 8
 // addByFour(5); // => should return 9
+
+/******************************************************************************/
 
 // CHALLENGE 4
 function once(func) {}
