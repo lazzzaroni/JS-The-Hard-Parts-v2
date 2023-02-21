@@ -194,12 +194,19 @@ function cycleIterator(array) {
 /******************************************************************************/
 
 // CHALLENGE 10
-function defineFirstArg(func, arg) {}
+function defineFirstArg(func, first) {
+  function inner(second) {
+    return func(first, second);
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
+// const subtract = (big, small) => big - small;
 // const subFrom20 = defineFirstArg(subtract, 20);
 // console.log(subFrom20(5)); // => should log 15
+
+/******************************************************************************/
 
 // CHALLENGE 11
 function dateStamp(func) {}
