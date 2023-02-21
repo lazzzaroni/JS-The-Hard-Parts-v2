@@ -398,13 +398,12 @@ function blackjack(array) {
   function dealer(num1, num2) {
     let take = new Array();
     let deal = 0;
-    let i = 0;
     let bust = "";
     function player() {
       if (deal) {
         if (bust !== "") return "you are done!";
-        take.push(array[i]);
-        i++;
+        take.push(array[0]);
+        array.shift();
         deal = take.reduce((acc, cur) => acc + cur, num1 + num2);
         if (deal > 21) {
           return (bust = "bust");
@@ -436,7 +435,7 @@ function blackjack(array) {
 // console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
 // console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
 
-// /*** BELOW LINES ARE FOR THE BONUS ***/
+// // /*** BELOW LINES ARE FOR THE BONUS ***/
 
 // /*** PLAYER 2 ***/
 // const i_TOO_like_to_live_dangerously = deal(2, 2);
