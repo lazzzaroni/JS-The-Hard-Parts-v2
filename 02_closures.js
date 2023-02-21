@@ -227,13 +227,27 @@ function dateStamp(func) {
 /******************************************************************************/
 
 // CHALLENGE 12
-function censor() {}
+function censor() {
+  const data = new Object();
+  function inner(arg1, arg2) {
+    if (arg2 === undefined) {
+      return arg1
+        .match(/[\w]+|[\W]/g)
+        .map((word) => data[word] || word)
+        .join("");
+    }
+    data[arg1] = arg2;
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
 // const changeScene = censor();
-// changeScene('dogs', 'cats');
-// changeScene('quick', 'slow');
-// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+// changeScene("dogs", "cats");
+// changeScene("quick", "slow");
+// console.log(changeScene("The quick, brown fox jumps over the lazy dogs.")); // => should log 'The slow, brown fox jumps over the lazy cats.'
+
+/******************************************************************************/
 
 // CHALLENGE 13
 function createSecretHolder(secret) {}
