@@ -314,16 +314,30 @@ function roulette(num) {
 /******************************************************************************/
 
 // CHALLENGE 16
-function average() {}
+function average() {
+  const nums = new Array();
+  function inner(number) {
+    if (number) nums.push(number);
+    if (nums.length) {
+      const result = nums.reduce((acc, cur) => acc + cur);
+      return result / nums.length;
+    }
+    return 0;
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
 // const avgSoFar = average();
+// console.log(avgSoFar()); // => should log 0
 // console.log(avgSoFar()); // => should log 0
 // console.log(avgSoFar(4)); // => should log 4
 // console.log(avgSoFar(8)); // => should log 6
 // console.log(avgSoFar()); // => should log 6
 // console.log(avgSoFar(12)); // => should log 8
 // console.log(avgSoFar()); // => should log 8
+
+/******************************************************************************/
 
 // CHALLENGE 17
 function makeFuncTester(arrOfTests) {}
