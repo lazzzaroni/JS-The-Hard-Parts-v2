@@ -140,24 +140,38 @@ function rollCall(names) {
   return inner;
 }
 
-/*** Uncomment these to check your work! ***/
-const rollCaller = rollCall(["Victoria", "Juan", "Ruth"]);
-rollCaller(); // => should log 'Victoria'
-rollCaller(); // => should log 'Juan'
-rollCaller(); // => should log 'Ruth'
-rollCaller(); // => should log 'Everyone accounted for'
+// /*** Uncomment these to check your work! ***/
+// const rollCaller = rollCall(["Victoria", "Juan", "Ruth"]);
+// rollCaller(); // => should log 'Victoria'
+// rollCaller(); // => should log 'Juan'
+// rollCaller(); // => should log 'Ruth'
+// rollCaller(); // => should log 'Everyone accounted for'
 
 /******************************************************************************/
 
 // CHALLENGE 8
-function saveOutput(func, magicWord) {}
+function saveOutput(func, magicWord) {
+  const data = new Object();
+  function inner(arg) {
+    if (typeof arg === "number") {
+      data[arg] = func(arg);
+      return func(arg);
+    }
+    if (arg === magicWord) {
+      return data;
+    }
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const multiplyBy2 = function(num) { return num * 2; };
-// const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
-// console.log(multBy2AndLog(2)); // => should log 4
-// console.log(multBy2AndLog(9)); // => should log 18
-// console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
+// const multiplyBy2 = (num) => num * 2;
+// const multiplyBy2AndLog = saveOutput(multiplyBy2, "boo");
+// console.log(multiplyBy2AndLog(2)); // => should log 4
+// console.log(multiplyBy2AndLog(9)); // => should log 18
+// console.log(multiplyBy2AndLog("boo")); // => should log { 2: 4, 9: 18 }
+
+/******************************************************************************/
 
 // CHALLENGE 9
 function cycleIterator(array) {}
