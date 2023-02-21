@@ -174,15 +174,24 @@ function saveOutput(func, magicWord) {
 /******************************************************************************/
 
 // CHALLENGE 9
-function cycleIterator(array) {}
+function cycleIterator(array) {
+  let i = 0;
+  function inner() {
+    if (!array[i]) i = 0;
+    return array[i++];
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+// const threeDayWeekend = ["Fri", "Sat", "Sun"];
 // const getDay = cycleIterator(threeDayWeekend);
 // console.log(getDay()); // => should log 'Fri'
 // console.log(getDay()); // => should log 'Sat'
 // console.log(getDay()); // => should log 'Sun'
 // console.log(getDay()); // => should log 'Fri'
+
+/******************************************************************************/
 
 // CHALLENGE 10
 function defineFirstArg(func, arg) {}
