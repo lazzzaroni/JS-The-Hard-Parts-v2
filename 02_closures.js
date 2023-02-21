@@ -209,12 +209,22 @@ function defineFirstArg(func, first) {
 /******************************************************************************/
 
 // CHALLENGE 11
-function dateStamp(func) {}
+function dateStamp(func) {
+  const data = new Object();
+  function inner(number) {
+    data["date"] = new Date();
+    data["output"] = func(number);
+    return data;
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const stampedMultBy2 = dateStamp(n => n * 2);
-// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+// const stampedMultiplyBy2 = dateStamp((n) => n * 2);
+// console.log(stampedMultiplyBy2(4)); // => should log { date: (today's date), output: 8 }
+// console.log(stampedMultiplyBy2(6)); // => should log { date: (today's date), output: 12 }
+
+/******************************************************************************/
 
 // CHALLENGE 12
 function censor() {}
