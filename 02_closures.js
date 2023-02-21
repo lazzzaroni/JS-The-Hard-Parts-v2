@@ -292,7 +292,16 @@ function callTimes() {
 /******************************************************************************/
 
 // CHALLENGE 15
-function roulette(num) {}
+function roulette(num) {
+  let counter = 0;
+  function inner() {
+    counter++;
+    if (num == counter) return "win";
+    if (num >= counter) return "spin";
+    return "pick a number to play again";
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
 // const play = roulette(3);
@@ -301,6 +310,8 @@ function roulette(num) {}
 // console.log(play()); // => should log 'win'
 // console.log(play()); // => should log 'pick a number to play again'
 // console.log(play()); // => should log 'pick a number to play again'
+
+/******************************************************************************/
 
 // CHALLENGE 16
 function average() {}
