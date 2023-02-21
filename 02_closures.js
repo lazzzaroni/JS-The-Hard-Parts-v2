@@ -120,7 +120,15 @@ function after(count, func) {
 /******************************************************************************/
 
 // CHALLENGE 6
-function delay(func, wait) {}
+function delay(func, wait) {
+  setTimeout(() => {
+    func();
+  }, wait);
+}
+
+// delay(() => console.log("Delay 3 sec"), 3000);
+
+/******************************************************************************/
 
 // CHALLENGE 7
 function rollCall(names) {}
