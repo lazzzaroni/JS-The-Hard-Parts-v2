@@ -131,14 +131,23 @@ function delay(func, wait) {
 /******************************************************************************/
 
 // CHALLENGE 7
-function rollCall(names) {}
+function rollCall(names) {
+  let i = 0;
+  function inner() {
+    if (!names[i]) return "Everyone accounted for";
+    return names[i++];
+  }
+  return inner;
+}
 
-// /*** Uncomment these to check your work! ***/
-// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
-// rollCaller() // => should log 'Victoria'
-// rollCaller() // => should log 'Juan'
-// rollCaller() // => should log 'Ruth'
-// rollCaller() // => should log 'Everyone accounted for'
+/*** Uncomment these to check your work! ***/
+const rollCaller = rollCall(["Victoria", "Juan", "Ruth"]);
+rollCaller(); // => should log 'Victoria'
+rollCaller(); // => should log 'Juan'
+rollCaller(); // => should log 'Ruth'
+rollCaller(); // => should log 'Everyone accounted for'
+
+/******************************************************************************/
 
 // CHALLENGE 8
 function saveOutput(func, magicWord) {}
