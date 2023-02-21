@@ -394,12 +394,37 @@ function makeHistory(limit) {
 /******************************************************************************/
 
 // CHALLENGE 19
-function blackjack(array) {}
+function blackjack(array) {
+  function dealer(num1, num2) {
+    let take = new Array();
+    let deal = 0;
+    let i = 0;
+    let bust = "";
+    function player() {
+      if (deal) {
+        if (bust !== "") return "you are done!";
+        take.push(array[i]);
+        i++;
+        deal = take.reduce((acc, cur) => acc + cur, num1 + num2);
+        if (deal > 21) {
+          return (bust = "bust");
+        }
+        return deal;
+      }
+      deal = num1 + num2;
+      return deal;
+    }
+    return player;
+  }
+  return dealer;
+}
 
 // /*** Uncomment these to check your work! ***/
 
 // /*** DEALER ***/
-// const deal = blackjack([2, 6, 1, 7, 11, 4, 6, 3, 9, 8, 9, 3, 10, 4, 5, 3, 7, 4, 9, 6, 10, 11]);
+// const deal = blackjack([
+//   2, 6, 1, 7, 11, 4, 6, 3, 9, 8, 9, 3, 10, 4, 5, 3, 7, 4, 9, 6, 10, 11,
+// ]);
 
 // /*** PLAYER 1 ***/
 // const i_like_to_live_dangerously = deal(4, 5);
