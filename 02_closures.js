@@ -273,7 +273,13 @@ function createSecretHolder(secret) {
 /******************************************************************************/
 
 // CHALLENGE 14
-function callTimes() {}
+function callTimes() {
+  let counter = 0;
+  function inner() {
+    return ++counter;
+  }
+  return inner;
+}
 
 // /*** Uncomment these to check your work! ***/
 // let myNewFunc1 = callTimes();
@@ -282,6 +288,8 @@ function callTimes() {}
 // myNewFunc1(); // => 2
 // myNewFunc2(); // => 1
 // myNewFunc2(); // => 2
+
+/******************************************************************************/
 
 // CHALLENGE 15
 function roulette(num) {}
