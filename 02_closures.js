@@ -250,13 +250,27 @@ function censor() {
 /******************************************************************************/
 
 // CHALLENGE 13
-function createSecretHolder(secret) {}
+function createSecretHolder(secret) {
+  function getSecret() {
+    return secret;
+  }
+  function setSecret(newSecret) {
+    secret = newSecret;
+  }
+
+  return {
+    setSecret,
+    getSecret,
+  };
+}
 
 // /*** Uncomment these to check your work! ***/
-// obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
-// obj.setSecret(2)
-// obj.getSecret() // => returns 2
+// obj = createSecretHolder(5);
+// obj.getSecret(); // => returns 5
+// obj.setSecret(2);
+// obj.getSecret(); // => returns 2
+
+/******************************************************************************/
 
 // CHALLENGE 14
 function callTimes() {}
