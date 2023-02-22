@@ -55,10 +55,19 @@ function brokenRecord() {
 /* CHALLENGE 5 */
 
 function limitedRepeat() {
-  // ADD CODE HERE
+  let counter = 5; // number of seconds
+  let sayHi = setInterval(() => {
+    if (!counter) {
+      return clearInterval(sayHi);
+    }
+    counter--;
+    console.log("hi for now");
+  }, 1000);
 }
 // Uncomment the following line to check your work!
 // limitedRepeat(); // should log (every second, for 5 seconds): hi for now
+
+/******************************************************************************/
 
 /* CHALLENGE 6 */
 
