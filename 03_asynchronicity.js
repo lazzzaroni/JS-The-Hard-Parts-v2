@@ -133,19 +133,35 @@ function promised(val) {
 
 class SecondClock {
   constructor(cb) {
-    // ADD CODE HERE
+    this.cb = cb;
+    this.seconds = 1;
+    this.clock = undefined;
   }
-  // ADD METHODS HERE
+  start() {
+    this.clock = setInterval(() => {
+      if (this.seconds > 60) {
+        this.seconds = 1;
+      }
+      this.cb(this.seconds++);
+    }, 1000);
+  }
+  reset() {
+    clearInterval(this.clock);
+  }
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const clock = new SecondClock((val) => { console.log(val) });
+// const clock = new SecondClock((val) => {
+//   console.log(val);
+// });
 // console.log("Started Clock.");
 // clock.start();
 // setTimeout(() => {
-//     clock.reset();
-//     console.log("Stopped Clock after 6 seconds.");
+//   clock.reset();
+//   console.log("Stopped Clock after 6 seconds.");
 // }, 6000);
+
+/******************************************************************************/
 
 /* CHALLENGE 10 */
 
