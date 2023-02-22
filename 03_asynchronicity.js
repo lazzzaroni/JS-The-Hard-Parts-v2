@@ -92,14 +92,25 @@ function theEnd() {
 
 /* CHALLENGE 7 */
 
-function delayCounter(target, wait) {}
+function delayCounter(target, wait) {
+  return () => {
+    let counter = 0;
+    let logger = setInterval(() => {
+      if (target === counter) return clearInterval(logger);
+      counter++;
+      console.log(counter);
+    }, wait);
+  };
+}
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const countLogger = delayCounter(3, 1000)
+// const countLogger = delayCounter(3, 1000);
 // countLogger();
 // After 1 second, log 1
 // After 2 seconds, log 2
 // After 3 seconds, log 3
+
+/******************************************************************************/
 
 /* CHALLENGE 8 */
 
