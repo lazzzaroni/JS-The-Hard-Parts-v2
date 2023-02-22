@@ -71,14 +71,24 @@ function limitedRepeat() {
 
 /* CHALLENGE 6 */
 
-function everyXsecsForYsecs() {
-  // ADD CODE HERE
+function everyXSecondsForYSeconds(callback, seconds, duration) {
+  const interval = seconds * 1000;
+  const time = duration * 1000;
+
+  let counter = 0;
+  let operation = setInterval(() => {
+    if (counter === time) return clearInterval(operation);
+    counter += interval;
+    callback();
+  }, interval);
 }
 // Uncomment the following lines to check your work!
-// function theEnd() {
-//   console.log('This is the end!');
-// }
-// everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+function theEnd() {
+  console.log("This is the end!");
+}
+// everyXSecondsForYSeconds(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+
+/******************************************************************************/
 
 /* CHALLENGE 7 */
 
