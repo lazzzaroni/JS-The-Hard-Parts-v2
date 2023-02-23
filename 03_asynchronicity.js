@@ -166,13 +166,40 @@ class SecondClock {
 /* CHALLENGE 10 */
 
 function debounce(callback, interval) {
-  // ADD CODE HERE
+  // https://www.youtube.com/watch?v=yBFHwJgqLD4
+  let timer;
+  let ready = true;
+
+  const launchTimer = () =>
+    setTimeout(() => {
+      ready = true;
+    }, interval);
+
+  return () => {
+    if (ready) {
+      ready = false;
+      timer = launchTimer();
+      return callback();
+    }
+
+    clearTimeout(timer);
+    timer = launchTimer();
+    return;
+  };
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// function giveHi() { return 'hi'; }
+// function giveHi() {
+//   return "hi";
+// }
 // const giveHiSometimes = debounce(giveHi, 3000);
 // console.log(giveHiSometimes()); // -> 'hi'
-// setTimeout(function() { console.log(giveHiSometimes()); }, 2000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 4000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 8000); // -> 'hi'
+// setTimeout(function () {
+//   console.log(giveHiSometimes());
+// }, 2000); // -> undefined
+// setTimeout(function () {
+//   console.log(giveHiSometimes());
+// }, 4000); // -> undefined
+// setTimeout(function () {
+//   console.log(giveHiSometimes());
+// }, 8000); // -> 'hi'
