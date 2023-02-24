@@ -105,11 +105,13 @@ PersonConstructor.prototype.introduce = function () {
 /*** CHALLENGE 8 ***/
 
 class PersonClass {
-  constructor() {
-    // add code here
+  constructor(name) {
+    this.name = name;
   }
 
-  // add code here
+  greet() {
+    console.log("hello");
+  }
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -118,10 +120,19 @@ const george = new PersonClass();
 
 /*** CHALLENGE 9 ***/
 
-// add code here
+class DeveloperClass extends PersonClass {
+  constructor(name, age) {
+    super(name);
+    this.age = age;
+  }
+
+  introduce() {
+    console.log(`Hi, my name is ${this.name}`);
+  }
+}
 
 // /********* Uncomment these lines to test your work! *********/
-// const thai = new DeveloperClass('Thai', 32);
+// const thai = new DeveloperClass("Thai", 32);
 // console.log(thai.name); // -> Logs 'Thai'
 // thai.introduce(); //-> Logs 'Hello World, my name is Thai'
 
