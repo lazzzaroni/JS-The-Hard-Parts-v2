@@ -37,7 +37,10 @@ const personStore = {
 /*** CHALLENGE 3 ***/
 
 function personFromPersonStore(name, age) {
-  // add code here
+  const newPerson = Object.create(personStore);
+  newPerson.name = name;
+  newPerson.age = age;
+  return newPerson;
 }
 
 const sandra = personFromPersonStore("Sandra", 26);
@@ -49,7 +52,9 @@ const sandra = personFromPersonStore("Sandra", 26);
 
 /*** CHALLENGE 4 ***/
 
-// add code here
+personStore.introduce = function () {
+  console.log(`Hi, my name is ${this.name}`);
+};
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
