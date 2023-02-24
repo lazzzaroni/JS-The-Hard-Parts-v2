@@ -26,7 +26,9 @@ const vicky = makePerson("Vicky", 24);
 /*** CHALLENGE 2 ***/
 
 const personStore = {
-  // add code here
+  greet: function () {
+    console.log("hello");
+  },
 };
 
 // /********* Uncomment this line to test your work! *********/
