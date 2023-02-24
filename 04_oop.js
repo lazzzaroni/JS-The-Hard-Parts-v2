@@ -6,8 +6,11 @@
 
 /*** CHALLENGE 1 ***/
 
-http: function makePerson(name, age) {
-  // add code here
+function makePerson(name, age) {
+  const newPerson = {};
+  newPerson.name = name;
+  newPerson.age = age;
+  return newPerson;
 }
 
 const vicky = makePerson("Vicky", 24);
