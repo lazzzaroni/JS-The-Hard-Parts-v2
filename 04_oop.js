@@ -65,7 +65,9 @@ personStore.introduce = function () {
 /*** CHALLENGE 5 ***/
 
 function PersonConstructor() {
-  // add code here
+  this.greet = function () {
+    console.log("hello");
+  };
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -75,7 +77,10 @@ const simon = new PersonConstructor();
 /*** CHALLENGE 6 ***/
 
 function personFromConstructor(name, age) {
-  // add code here
+  const newPerson = new PersonConstructor();
+  newPerson.name = name;
+  newPerson.age = age;
+  return newPerson;
 }
 
 const mike = personFromConstructor("Mike", 30);
@@ -86,7 +91,10 @@ const mike = personFromConstructor("Mike", 30);
 // mike.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 7 ***/
-// add code here
+
+PersonConstructor.prototype.introduce = function () {
+  console.log(`Hi, my name is ${this.name}`);
+};
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
