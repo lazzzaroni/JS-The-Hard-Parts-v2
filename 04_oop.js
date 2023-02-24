@@ -156,24 +156,33 @@ function userFactory(name, score) {
 
 /*** CHALLENGE 10 ***/
 
-const adminFunctionStore = {
-  // add code here
-};
+const adminFunctionStore = Object.create(userFunctionStore);
 
 /*** CHALLENGE 11, 12, 13 ***/
 
 function adminFactory(name, score) {
-  // add code here
+  // inherit name and score props from userFactory
+  let admin = new userFactory(name, score);
+  // reassign userFunctionStore to adminFunctionStore
+  admin = Object.assign(admin, adminFunctionStore);
+  admin.type = "Admin";
+  return admin;
 }
 
 /*** CHALLENGE 14 ***/
-/* Put code here for a method called sharePublicMessage*/
+// only admins have an access to this method
+adminFunctionStore.sharePublicMessage = function () {
+  console.log("Welcome users!");
+};
 
 const adminFromFactory = adminFactory("Eva", 5);
+const userFromFactory = userFactory("Will", 7);
 
 // /********* Uncomment these lines to test your work! *********/
-// adminFromFactory.sayType() // -> Logs "I am a Admin"
-// adminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
+// adminFromFactory.sayType(); // -> Logs "I am a Admin"
+// adminFromFactory.sharePublicMessage(); // -> Logs "Welcome users!"
+// userFromFactory.sayType(); // -> Logs "I am a User"
+// userFromFactory.sharePublicMessage(); // -> userFromFactory.sharePublicMessage is not a function
 
 /****************************************************************
 EXTENSION: MIXINS
